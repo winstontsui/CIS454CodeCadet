@@ -16,16 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from personal.views import register_request, login_request, logout_request, home_view
-#from django.conf.urls import url
-from personal import views as core_views
+from personal.views import signup, login, home_view, logout, base
+
+#from django.conf.urls import url, include
+from django.contrib.auth import views as auth_views
+
+from personal import views 
 
 urlpatterns = [
-   #path('admin/', admin.site.urls),
-    #url(r'^signup/$', core_views.signup, name='signup'),
-    #path('register/', register_request, name='register'),
-    #path('login/', login_request, name='login'),
-    #path('logout/', logout_request, name= 'logout'),
+    path('signup/', signup, name='signup'),
+    path('login/', login, name='login'),
+    path('logout/', logout, name='logout'),
+    path('base/', base, name='base'),
     path('home/', home_view, name= 'home'),
     path('admin/', admin.site.urls),
 ]
