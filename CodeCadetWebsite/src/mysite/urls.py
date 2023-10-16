@@ -16,12 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from personal.views import register_request, login_request, logout_request
+from personal.views import register_request, login_request, logout_request, home_view
+#from django.conf.urls import url
+from personal import views as core_views
 
 urlpatterns = [
    #path('admin/', admin.site.urls),
-    path("register/", register_request, name="register"),
-    path("login/", login_request, name="login"),
-    path("logout/", logout_request, name= "logout"),
+    #url(r'^signup/$', core_views.signup, name='signup'),
+    #path('register/', register_request, name='register'),
+    #path('login/', login_request, name='login'),
+    #path('logout/', logout_request, name= 'logout'),
+    path('home/', home_view, name= 'home'),
     path('admin/', admin.site.urls),
 ]
