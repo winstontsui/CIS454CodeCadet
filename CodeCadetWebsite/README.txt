@@ -13,7 +13,7 @@ To run the server locally:
 5. run "python manage.py runserver"
 
 6. Write the url (numbers) after the http on the line of "Starting development server at ...", and type them into your web browser.
-Should be something like: 127.0.0.1:8000/
+Should be something like: 127.0.0.1:8000
 
 
 Notes:
@@ -27,7 +27,7 @@ There are a lot of libraries I have installed that I am certain we do not need b
 
 Using Sublime Text: 
 
-If you're working on the website, I highly recommend Sublime Text. Download link: https://www.sublimetext.com/
+If you're working on the website, I highly recommend Sublime Text. VSCode definitely works just fine too so whatever you're comfortable with but I think it looks nice and I want to experiment with it a bit more. Download link: https://www.sublimetext.com/
 
 After installing, run the program and go to File -> Open Folder -> (..\CIS454CodeCadet\CodeCadetWebsite\src)
 
