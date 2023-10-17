@@ -12,7 +12,7 @@ from personal.tokens import account_activation_token
 
 @login_required
 def home_view(request, *args, **kwargs):
-    return render(request, "home.html", {})
+    return render(request, "base.html", {})
 
 def logout(request, *args, **kwargs):
     return render(request, "logout.html", {})
@@ -59,7 +59,7 @@ def activate(request, uidb64, token):
         user.profile.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('home')
+        return redirect('base')
     else:
         return render(request, 'account_activation_invalid.html')
     
