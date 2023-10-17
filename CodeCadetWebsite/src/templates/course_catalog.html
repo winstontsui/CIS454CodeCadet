@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,9 +16,9 @@
     <p>Here is where you will see the different courses Code Cadet has to offer</p>
     <a href="{% url 'python' %}">learn python</a>
     <main>
-      {% block content %}
-      {% endblock %}
     </main>
   </body>
 </html>
 <a href="{% url 'logout' %}">logout</a>
+{% endblock %}
+
