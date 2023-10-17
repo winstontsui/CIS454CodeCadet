@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.views import LogoutView
 from django.urls import path
-from personal.views import signup, login, home_view, logout, base, account_activation_sent, activate, course_catalog, course_preview, community, python, c_plus_plus, java
+from personal.views import signup, login, home_view, custom_logout, base, account_activation_sent, activate, course_catalog, course_preview, community, python, c_plus_plus, java
 
 #from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
@@ -25,7 +26,7 @@ urlpatterns = [
     path('', base, name='base'), 
     path('signup/', signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', logout, name='logout'),
+    path('logout/', custom_logout, name='logout'),
     path('base/', base, name='base'),
     path('home/', home_view, name= 'home'),
     path('course_catalog', course_catalog, name='course_catalog'),
@@ -38,3 +39,5 @@ urlpatterns = [
     path('account_activation_sent/', account_activation_sent, name='account_activation_sent'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
 ]
+
+admin.site.logout = LogoutView.as_view(next_page='custom_logout')

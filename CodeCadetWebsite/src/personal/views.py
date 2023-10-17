@@ -1,4 +1,5 @@
 from django.contrib.auth import login
+from django.contrib.auth import logout 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
@@ -14,8 +15,9 @@ from personal.tokens import account_activation_token
 def home_view(request, *args, **kwargs):
     return render(request, "base.html", {})
 
-def logout(request, *args, **kwargs):
-    return render(request, "logout.html", {})
+def custom_logout(request, *args, **kwargs):
+    logout(request)
+    return redirect('base')
 
 def base(request, *args, **kwargs):
     return render(request, "base.html", {})
