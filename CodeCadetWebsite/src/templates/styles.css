@@ -1,0 +1,29 @@
+/* Add this to your CSS styles */
+.search-bar {
+    display: none;
+    transition: all 0.5s;
+}
+
+/* Style the button */
+#searchButton {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the search input */
+#searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Style the submit button */
+#searchSubmit {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
