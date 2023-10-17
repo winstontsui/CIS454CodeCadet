@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Simple is Better Than Complex{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1>Course Catelog</h1>
+        <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
+      <hr>
+    </header>
+    <p>Hello Welcome to the Code Cadet course catelog page!</p>
+    <p>Here is where you will see the different courses Code Cadet has to offer</p>
+    <a href="{% url 'course_preview' %}">learn python</a>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
+<a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>

@@ -62,3 +62,13 @@ def activate(request, uidb64, token):
         return redirect('home')
     else:
         return render(request, 'account_activation_invalid.html')
+    
+def course_catelog(request, *args, **kwargs):
+    return render(request, "course_catelog.html", {})
+
+def course_preview(request, *args, **kwargs):
+    return render(request, "course_preview.html", {})
+
+def community(request, *args, **kwargs):
+    return render(request, "community.html", {})
+
