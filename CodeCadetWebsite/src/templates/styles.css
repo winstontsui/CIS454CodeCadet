@@ -1,29 +1,55 @@
-/* Add this to your CSS styles */
-.search-bar {
+/* Add custom CSS for the menu bar */
+header {
+    background-color: #0077b6; /* Slightly shaded blue background color */
+    padding: 10px;
+    text-align: center;
+    position: relative; /* Add this line to establish a positioning context */
+  }
+  
+  /* Style for the logo */
+  .logo img {
+    max-width: 50px;
+    vertical-align: middle;
+  }
+  
+  /* Add custom CSS for the search bar */
+  .search-bar {
     display: none;
-    transition: all 0.5s;
-}
-
-/* Style the button */
-#searchButton {
-    background-color: #0077b6;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Style the search input */
-#searchInput {
+    position: absolute; /* Position the search bar absolutely */
+    top: 100%; /* Position it below the header */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center it horizontally */
+    background-color: #fff; /* Background color for the search bar */
+    padding: 10px;
+    z-index: 1; /* Ensure it's above other content */
+  }
+  
+  /* Style the search input */
+  #searchInput {
     padding: 10px;
     border: 1px solid #ccc;
-}
-
-/* Style the submit button */
-#searchSubmit {
+  }
+  
+  /* Style the submit button */
+  #searchSubmit {
     background-color: #0077b6;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+  }
+  /* Add custom CSS for community rectangles */
+.community-rectangle {
+    background-color: #f2f2f2; /* Light gray background color */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd; /* Border for separation */
+}
+
+.community-rectangle h2 {
+    font-size: 1.5em; /* Larger heading size */
+}
+
+.community-rectangle p {
+    font-size: 1.2em; /* Slightly larger text size */
 }

@@ -2,8 +2,10 @@
 {% load static %}
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="myapp/styles.css">
-    <script src="myapp/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    
+<script src="{% static 'myapp/script.js' %}"></script>
+
 
     <meta charset="utf-8">
     <title>{% block title %}Your Title Here{% endblock %}</title>
@@ -50,14 +52,14 @@
         {% else %}
           <a href="{% url 'login' %}">Login</a>
         {% endif %}
-      </nav>
-      <button id="searchButton" onclick="toggleSearch()">Search</button>
+        <button id="searchButton" onclick="toggleSearch()">Search</button>
 
         <!-- Hidden search bar -->
         <div id="searchBar" class="search-bar">
             <input type="text" id="searchInput" placeholder="Search...">
             <button id="searchSubmit" onclick="performSearch()">Submit</button>
         </div>
+      </nav>
     </header>
     <main>
       {% block content %}
