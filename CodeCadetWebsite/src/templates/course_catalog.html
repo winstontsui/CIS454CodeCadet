@@ -12,15 +12,18 @@
       <h1>Course Catalog</h1>
       <hr>
     </header>
-    <p>Hello Welcome to the Code Cadet course catalog page!</p>
-    <p>Here is where you will see the different courses Code Cadet has to offer.</p>
+    <p style="font-size:50px; color: rgb(0, 0, 0); text-align: center;">Welcome to the Code Cadet course catalog page!</p>
+    <p style="font-size:25px; color: rgb(32, 32, 32); text-align: left;">Here is where you will see the different courses Code Cadet has to offer.</p>
     <a href="{% url 'c++' %}">learn c++</a>
+    <br>
     <a href="{% url 'java' %}">learn java</a>
+    <br>
     <a href="{% url 'python' %}">learn python</a>
     <main>
     </main>
   </body>
 </html>
+<br>
 <a href="{% url 'logout' %}">logout</a>
 {% endblock %}
 
