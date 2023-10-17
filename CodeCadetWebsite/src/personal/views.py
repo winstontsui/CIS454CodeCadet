@@ -1,4 +1,5 @@
 from django.contrib.auth import login
+from django.contrib.auth import logout 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
@@ -12,10 +13,11 @@ from personal.tokens import account_activation_token
 
 @login_required
 def home_view(request, *args, **kwargs):
-    return render(request, "home.html", {})
+    return render(request, "base.html", {})
 
-def logout(request, *args, **kwargs):
-    return render(request, "logout.html", {})
+def custom_logout(request, *args, **kwargs):
+    logout(request)
+    return redirect('base')
 
 def base(request, *args, **kwargs):
     return render(request, "base.html", {})
@@ -59,7 +61,7 @@ def activate(request, uidb64, token):
         user.profile.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('home')
+        return redirect('base')
     else:
         return render(request, 'account_activation_invalid.html')
     
@@ -71,6 +73,12 @@ def course_preview(request, *args, **kwargs):
 
 def community(request, *args, **kwargs):
     return render(request, "community.html", {})
+
+def c_plus_plus(request, *args, **kwargs):
+    return render(request, "c++.html", {})
+
+def java(request, *args, **kwargs):
+    return render(request, "java.html", {})
 
 def python(request, *args, **kwargs):
     return render(request, "python.html", {})

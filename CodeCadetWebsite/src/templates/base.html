@@ -4,26 +4,30 @@
   <head>
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     
-<script src="{% static 'myapp/script.js' %}"></script>
+<script src="{% static 'script.js' %}"></script>
 
 
     <meta charset="utf-8">
-    <title>{% block title %}Your Title Here{% endblock %}</title>
+    <title>{% block title %}Code Cadet{% endblock %}</title>
     <style>
       /* Add custom CSS for the menu bar */
-      header {
-        background-color: #0077b6; /* Slightly shaded blue background color */
-        padding: 10px;
-        text-align: center;
-      }
+      /* Add custom CSS for the menu bar */
+header {
+  background: linear-gradient(to bottom, #005b8b, #0077b6);
+  padding: 50px;
+  text-align: center;
+  position: relative;
+}
+
 
       h1 {
         color: #fff; /* White text color for the app name */
       }
 
       nav {
-        display: inline-block;
-      }
+    display: inline-block;
+    margin-left: 10px; /* Add margin to separate the logo from the navigation links */
+  }
 
       nav a {
         color: #fff; /* White text color for navigation buttons */
@@ -33,17 +37,18 @@
 
       /* Style for the logo */
       .logo img {
-        max-width: 50px;
-        vertical-align: middle;
-      }
+    max-width: 50px;
+    vertical-align: middle; /* This can be removed */
+    float: left; /* Add this line to make the logo float to the left */
+  }
     </style>
   </head>
   <body>
     <header>
       <div class="logo">
         <img src="{% static 'images/CodeCadetLogo.png' %}" alt="CodeCadet Logo">
-    </div>
-    
+      </div>
+      
       <nav>
         <a href="{% url 'course_catalog' %}">Catalog</a>
         <a href="{% url 'community' %}">Community</a>
@@ -53,12 +58,14 @@
           <a href="{% url 'login' %}">Login</a>
         {% endif %}
         <button id="searchButton" onclick="toggleSearch()">Search</button>
-
+      
         <!-- Hidden search bar -->
-        <div id="searchBar" class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search...">
-            <button id="searchSubmit" onclick="performSearch()">Submit</button>
-        </div>
+        <!-- Hidden search bar -->
+<div id="searchBar" class="search-bar"> <!-- Add the "search-bar" class here -->
+  <input type="text" id="searchInput" placeholder="Search...">
+  <button id="searchSubmit" onclick="performSearch()">Submit</button>
+</div>
+
       </nav>
     </header>
     <main>

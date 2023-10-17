@@ -12,13 +12,38 @@
       <h1>Course Catalog</h1>
       <hr>
     </header>
-    <p>Hello Welcome to the Code Cadet course catalog page!</p>
-    <p>Here is where you will see the different courses Code Cadet has to offer</p>
-    <a href="{% url 'python' %}">learn python</a>
+    <p style="font-size:50px; color: rgb(0, 0, 0); text-align: center;">Welcome to the Code Cadet course catalog page!</p>
+    <p style="font-size:25px; color: rgb(0, 0, 0); text-align: left;">Here is where you will see the different courses Code Cadet has to offer.</p>
+    
+    <div style="font-size: 20px;">
+      <a href="{% url 'c++' %}">learn c++</a>
+      <p style="display: inline; font-size: 20px; color: rgb(0, 0, 0); margin: 0;">
+          - high-performance object-oriented programming with pointers, common for system-level and application development.
+      </p>
+  </div>
+    <br>
+
+    <div style="font-size: 20px;">
+      <a href="{% url 'java' %}">learn java</a>
+      <p style="display: inline; font-size: 20px; color: rgb(0, 0, 0); margin: 0;">
+          - high-level object-oriented language used for cross-platform application development.
+      </p>
+  </div>
+    <br>
+
+    <div style="font-size: 20px;">
+      <a href="{% url 'python' %}">learn python</a>
+      <p style="display: inline; font-size: 20px; color: rgb(0, 0, 0); margin: 0;">
+          - very high-level dynamically-typed language known for simplicity and readability, suitable for a wide range of applications.
+      </p>
+  </div>
+
     <main>
     </main>
   </body>
 </html>
-<a href="{% url 'logout' %}">logout</a>
+<br>
+<br>
+<a href="{% url 'logout' %}"  style="font-size:20px;">logout</a>
 {% endblock %}
 
