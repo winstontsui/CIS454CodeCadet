@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from personal.views import signup, login, home_view, logout, base, account_activation_sent, activate, course_catelog, course_preview, community
+from personal.views import signup, login, home_view, logout, base, account_activation_sent, activate, course_catalog, course_preview, community, python
 
 #from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
@@ -28,9 +28,10 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('base/', base, name='base'),
     path('home/', home_view, name= 'home'),
-    path('course_catelog', course_catelog, name='course_catelog'),
+    path('course_catalog', course_catalog, name='course_catalog'),
     path('course_preview', course_preview, name='course_preview'),
     path('community', community, name='community'),
+    path('python', python, name='python'),
     path('admin/', admin.site.urls),
     path('account_activation_sent/', account_activation_sent, name='account_activation_sent'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
