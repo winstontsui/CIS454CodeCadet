@@ -72,6 +72,12 @@ def course_preview(request, *args, **kwargs):
 def community(request, *args, **kwargs):
     return render(request, "community.html", {})
 
+def c_plus_plus(request, *args, **kwargs):
+    return render(request, "c++.html", {})
+
+def java(request, *args, **kwargs):
+    return render(request, "java.html", {})
+
 def python(request, *args, **kwargs):
     return render(request, "python.html", {})
 
