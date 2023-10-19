@@ -36,11 +36,11 @@ export default function Home() {
 								<tr>
 									<th scope='col' className='px-1 py-3 w-0 font-medium'>
 										<h1>
-											Read <Link href="/community">this page!</Link>
+											<Link href="/community">Community Page</Link>
 										</h1>
 									</th>
 									<th scope='col' className='px-6 py-3 w-0 font-medium'>
-										Catalog
+										<h1><Link href="/community">Catalog Page</Link></h1>
 									</th>
 								</tr>
 							</thead>
