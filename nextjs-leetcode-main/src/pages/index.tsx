@@ -1,6 +1,8 @@
 import ProblemsTable from "@/components/ProblemsTable/ProblemsTable";
 import Topbar from "@/components/Topbar/Topbar";
 import useHasMounted from "@/hooks/useHasMounted";
+import Link from 'next/link';
+
 
 import { useState } from "react";
 
@@ -33,7 +35,9 @@ export default function Home() {
 							<thead className='text-xs text-gray-700 uppercase dark:text-gray-400 border-b '>
 								<tr>
 									<th scope='col' className='px-1 py-3 w-0 font-medium'>
-										Community
+										<h1>
+											Read <Link href="/community">this page!</Link>
+										</h1>
 									</th>
 									<th scope='col' className='px-6 py-3 w-0 font-medium'>
 										Catalog
