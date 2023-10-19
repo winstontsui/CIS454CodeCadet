@@ -36,7 +36,7 @@ const Login: React.FC<LoginProps> = () => {
 	}, [error]);
 	return (
 		<form className='space-y-6 px-6 pb-4' onSubmit={handleLogin}>
-			<h3 className='text-xl font-medium text-white'>Sign in to LeetClone</h3>
+			<h3 className='text-xl font-medium text-white'>Sign in to Code Cadet</h3>
 			<div>
 				<label htmlFor='email' className='text-sm font-medium block mb-2 text-gray-300'>
 					Your Email
