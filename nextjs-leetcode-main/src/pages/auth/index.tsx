@@ -26,7 +26,7 @@ const AuthPage: React.FC<AuthPageProps> = () => {
 		<div className='bg-gradient-to-b from-gray-600 to-black h-screen relative'>
 			<div className='max-w-7xl mx-auto'>
 				<Navbar />
-				<h1 className='text-4xl font-extrabold text-white text-center mt-8 mb-8'>Log out successful</h1>
+				<h1 className='text-4xl font-extrabold text-white text-center mt-20 mb-20'>Log out successful</h1>
 				{authModal.isOpen && <AuthModal />}
 			</div>
 		</div>

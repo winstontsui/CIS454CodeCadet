@@ -68,7 +68,7 @@ const Signup: React.FC<SignupProps> = () => {
         border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
         bg-gray-600 border-gray-500 placeholder-gray-400 text-white
     '
-					placeholder='name@company.com'
+					placeholder='name@email.com'
 				/>
 			</div>
 			<div>
