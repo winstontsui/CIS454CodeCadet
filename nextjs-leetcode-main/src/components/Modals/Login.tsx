@@ -12,13 +12,31 @@ const Login: React.FC<LoginProps> = () => {
 	const handleClick = (type: "login" | "register" | "forgotPassword") => {
 		setAuthModalState((prev) => ({ ...prev, type }));
 	};
+	//login states, such as email, and password
 	const [inputs, setInputs] = useState({ email: "", password: "" });
+	//states for signing in with email and password
+	//user
+	//loading <- when the user info is processing
+	//error <- when user inputs any invalid credentials, such as duplicate email for new user
 	const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 	const router = useRouter();
+	/*	
+		handleChangInput function: 
+		-> used to handle user inputs
+		-> would only update the specifc input state
+		-> if user inputs email, only email will be updated 
+		-> other two state values would not be updated. Updates seperately
+	*/
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	};
-
+	/*	
+		handleLogin function: 
+		-> used to handle login
+		-> if input is not valid, alert message is shown
+		-> else, if there isn't a user, simply returns, 
+		-> 		-> else, returns signed in user to home page
+	*/
 	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (!inputs.email || !inputs.password) return alert("Please fill all fields");
