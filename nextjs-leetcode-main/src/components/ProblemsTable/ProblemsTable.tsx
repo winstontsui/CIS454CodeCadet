@@ -21,12 +21,14 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 	const problems = useGetProblems(setLoadingProblems);
 	const solvedProblems = useGetSolvedProblems();
 	console.log("solvedProblems", solvedProblems);
+	/* closeModal function closes the YouTube video when called */
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" });
 	};
 
 	useEffect(() => {
 		const handleEsc = (e: KeyboardEvent) => {
+			/* if escape key is clicked, closedModal function will be triggered  */
 			if (e.key === "Escape") closeModal();
 		};
 		window.addEventListener("keydown", handleEsc);
@@ -71,10 +73,12 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 							<td className={"px-6 py-4"}>{problem.category}</td>
 							<td className={"px-6 py-4"}>
 								{problem.videoId ? (
+									/* AiFillYoutube is a react icons AI */
 									<AiFillYoutube
 										fontSize={"28"}
 										className='cursor-pointer hover:text-red-600'
 										onClick={() =>
+											/* setYouTubePlayer function sets the state of whether the YouTube video should be displayed */
 											setYoutubePlayer({ isOpen: true, videoId: problem.videoId as string })
 										}
 									/>
@@ -86,6 +90,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 					);
 				})}
 			</tbody>
+			{/* The following code takes care of when the youtube video would be shown */}
 			{youtubePlayer.isOpen && (
 				<tfoot className='fixed top-0 left-0 h-screen w-screen flex items-center justify-center'>
 					<div
