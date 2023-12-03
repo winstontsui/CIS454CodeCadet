@@ -14,13 +14,32 @@ const Signup: React.FC<SignupProps> = () => {
 	const handleClick = () => {
 		setAuthModalState((prev) => ({ ...prev, type: "login" }));
 	};
+	//signup states, such as email, dispplayName, and password
 	const [inputs, setInputs] = useState({ email: "", displayName: "", password: "" });
 	const router = useRouter();
-	const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+	/* states for creating the user with email and password
+		-->user 
+		-->loading <- when the user info is processing
+		-->error <- when user inputs any invalid credentials, such as duplicate email for new user
+	*/
+ 	const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+	/*	
+		handleChangInput function: 
+		-> used to handle user inputs
+		-> would only update the specifc input state
+		-> if user inputs email, only email will be updated 
+		-> other two state values would not be updated. Updates seperately
+	*/
 	const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	};
-
+	/*	
+		handleRegister function: 
+		-> used to handle registeration
+		-> if input is not valid, alert message is shown
+		-> else, if there isn't a user, simply returns, 
+		->		-> else, store user info into database
+	*/
 	const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (!inputs.email || !inputs.password || !inputs.displayName) return alert("Please fill all fields");
@@ -47,7 +66,7 @@ const Signup: React.FC<SignupProps> = () => {
 			toast.dismiss("loadingToast");
 		}
 	};
-
+	/* For error handling */
 	useEffect(() => {
 		if (error) alert(error.message);
 	}, [error]);
@@ -110,6 +129,7 @@ const Signup: React.FC<SignupProps> = () => {
             text-sm px-5 py-2.5 text-center bg-brand-orange hover:bg-brand-orange-s
         '
 			>
+				{/*loading states. If its loading, outputs "Registering", else, "Register"*/}
 				{loading ? "Registering..." : "Register"}
 			</button>
 
