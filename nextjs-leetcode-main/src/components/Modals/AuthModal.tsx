@@ -38,14 +38,18 @@ const AuthModal: React.FC<AuthModalProps> = () => {
 };
 export default AuthModal;
 
+//useCloseModal function to close the modal
 function useCloseModal() {
 	const setAuthModal = useSetRecoilState(authModalState);
 
 	const closeModal = () => {
+		//sets the authmodal type to always be login. After clicking out of the window, 
+		//clicking back into the Sign In button would bring user back to the Login window
 		setAuthModal((prev) => ({ ...prev, isOpen: false, type: "login" }));
 	};
 
 	useEffect(() => {
+		//handleEsc is a function that would close the modal when called
 		const handleEsc = (e: KeyboardEvent) => {
 			if (e.key === "Escape") closeModal();
 		};
