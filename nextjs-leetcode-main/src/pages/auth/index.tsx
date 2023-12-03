@@ -15,6 +15,7 @@ const AuthPage: React.FC<AuthPageProps> = () => {
 	const [pageLoading, setPageLoading] = useState(true);
 	const router = useRouter();
 
+	/* if a user is authenticated, directs them to home page */
 	useEffect(() => {
 		if (user) router.push("/");
 		if (!loading && !user) setPageLoading(false);
@@ -27,7 +28,7 @@ const AuthPage: React.FC<AuthPageProps> = () => {
 			<div className='max-w-7xl mx-auto'>
 				<Navbar />
 				<h1 className='text-4xl font-extrabold text-white text-center mt-8 mb-8'>Log out successful</h1>
-				{authModal.isOpen && <AuthModal />}
+				{authModal.isOpen && <AuthModal />}	 {/*only display the auth modal components if its open*/}
 			</div>
 		</div>
 	);
