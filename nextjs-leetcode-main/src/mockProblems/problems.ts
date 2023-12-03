@@ -1,12 +1,14 @@
+// each practice problem types
 export type Problem = {
 	id: string;
 	title: string;
 	difficulty: string;
 	category: string;
 	order: number;
-	videoId?: string;
+	videoId?: string;	//video id for the youtube video which can be found in any youtube video link url after v=
 };
 
+// list of the practice problems
 export const problems: Problem[] = [
 	{
 		id: "two-sum",
