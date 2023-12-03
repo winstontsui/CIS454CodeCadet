@@ -11,6 +11,7 @@ const initalAuthModalState: AuthModalState = {
 };
 
 export const authModalState = atom<AuthModalState>({
+	/* the key that allows the recoil to know which state its using*/
 	key: "authModalState",
-	default: initalAuthModalState,
+	default: initalAuthModalState,	//our inital state for authentication is always the login state
 });

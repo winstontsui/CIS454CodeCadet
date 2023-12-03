@@ -1,9 +1,10 @@
 import ProblemsTable from "@/components/ProblemsTable/ProblemsTable";
 import Topbar from "@/components/Topbar/Topbar";
 import useHasMounted from "@/hooks/useHasMounted";
-//import Link from 'next/link';
+import Link from 'next/link';
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+
+type HomePageProps = {};
 
 export default function Home() {
 	const [loadingProblems, setLoadingProblems] = useState(true);
@@ -13,7 +14,7 @@ export default function Home() {
 
 	return (
 		<>
-			<main className='bg-dark-layer-2 min-h-screen'>	
+			<main className='bg-dark-layer-2 min-h-screen'>
 				<Topbar />
 				<h1
 					className='text-2xl text-center text-gray-700 dark:text-gray-400 font-medium

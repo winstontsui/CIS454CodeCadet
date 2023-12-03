@@ -7,6 +7,7 @@ const Timer: React.FC<TimerProps> = () => {
 	const [showTimer, setShowTimer] = useState<boolean>(false);
 	const [time, setTime] = useState<number>(0);
 
+	/* formatTime function reformats the time to hour:minute:seconds format */
 	const formatTime = (time: number): string => {
 		const hours = Math.floor(time / 3600);
 		const minutes = Math.floor((time % 3600) / 60);
@@ -37,7 +38,7 @@ const Timer: React.FC<TimerProps> = () => {
 					<FiRefreshCcw
 						onClick={() => {
 							setShowTimer(false);
-							setTime(0);
+							setTime(0);		// the timer resets to 0 after timer is clicked
 						}}
 					/>
 				</div>

@@ -57,7 +57,7 @@ const PreferenceNav: React.FC<PreferenceNavProps> = ({ setSettings, settings }) 
 					</div>
 					<div className='preferenceBtn-tooltip'>Settings</div>
 				</button>
-
+				
 				<button className='preferenceBtn group' onClick={handleFullScreen}>
 					<div className='h-4 w-4 text-dark-gray-6 font-bold text-lg'>
 						{!isFullScreen ? <AiOutlineFullscreen /> : <AiOutlineFullscreenExit />}

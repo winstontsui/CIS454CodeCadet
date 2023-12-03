@@ -8,7 +8,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
 	const [email, setEmail] = useState("");
 	const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 	const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+		e.preventDefault(); //used to prevent browser from refreshing the page
 		const success = await sendPasswordResetEmail(email);
 		if (success) {
 			toast.success("Password reset email sent", { position: "top-center", autoClose: 3000, theme: "dark" });
@@ -20,6 +20,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
 			alert(error.message);
 		}
 	}, [error]);
+	
 	return (
 		<form className='space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8' onSubmit={handleReset}>
 			<h3 className='text-xl font-medium  text-white'>Reset Password</h3>

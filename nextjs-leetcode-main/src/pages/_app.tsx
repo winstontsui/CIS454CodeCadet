@@ -6,6 +6,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function App({ Component, pageProps }: AppProps) {
 	return (
+		//wrap the application to be able to use the recoilRoot
+		//allows us to use the functions coming from recoil 
 		<RecoilRoot>
 			<Head>
 				<title>Code Cadet</title>
@@ -18,6 +20,6 @@ export default function App({ Component, pageProps }: AppProps) {
 			</Head>
 			<ToastContainer />
 			<Component {...pageProps} />
-		</RecoilRoot>
+		</RecoilRoot>	
 	);
 }

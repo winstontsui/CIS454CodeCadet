@@ -12,28 +12,49 @@ const Login: React.FC<LoginProps> = () => {
 	const handleClick = (type: "login" | "register" | "forgotPassword") => {
 		setAuthModalState((prev) => ({ ...prev, type }));
 	};
+	//login states, such as email, and password
 	const [inputs, setInputs] = useState({ email: "", password: "" });
-	const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 	const router = useRouter();
+	//states for signing in with email and password
+	//user
+	//loading <- when the user info is processing
+	//error <- when user inputs any invalid credentials, such as duplicate email for new user
+	const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+	/*	
+		handleChangInput function: 
+		-> used to handle user inputs
+		-> would only update the specifc input state
+		-> if user inputs email, only email will be updated 
+		-> other two state values would not be updated. Updates seperately
+	*/
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	};
 
+	/*	
+		handleLogin function: 
+		-> used to handle login
+		-> if input is not valid, alert message is shown
+		-> else, if there isn't a user, simply returns, 
+		-> 		-> else, returns signed in user to home page
+	*/
 	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (!inputs.email || !inputs.password) return alert("Please fill all fields");
 		try {
 			const newUser = await signInWithEmailAndPassword(inputs.email, inputs.password);
 			if (!newUser) return;
-			router.push("/");
+			router.push("/");	//redirects user to root homepage
 		} catch (error: any) {
 			toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
 		}
 	};
 
+	/* For error handling */
 	useEffect(() => {
 		if (error) toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
 	}, [error]);
+
 	return (
 		<form className='space-y-6 px-6 pb-4' onSubmit={handleLogin}>
 			<h3 className='text-xl font-medium text-black'>Sign in to Code Cadet</h3>
@@ -76,6 +97,7 @@ const Login: React.FC<LoginProps> = () => {
                 text-sm px-5 py-2.5 text-center bg-brand-orange hover:bg-brand-orange-s
             '
 			>
+				{/*loading states. If its loading, outputs "Loading", else, "Log In"*/}
 				{loading ? "Loading..." : "Log In"}
 			</button>
 			<button className='flex w-full justify-end' onClick={() => handleClick("forgotPassword")}>
