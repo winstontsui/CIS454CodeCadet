@@ -22,6 +22,10 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 	const setAuthModalState = useSetRecoilState(authModalState);
 	const router = useRouter();
 
+	/* 
+ 		handleProblemChange function 
+   		--> based on the three conditions, router.push will display the corresponding problem to the workspace 
+   	*/
 	const handleProblemChange = (isForward: boolean) => {
 		const { order } = problems[router.query.pid as string] as Problem;
 		const direction = isForward ? 1 : -1;
@@ -54,7 +58,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer'
 							onClick={() => handleProblemChange(false)}
 						>
-							<FaChevronLeft />
+							<FaChevronLeft />	{/* react icons */}
 						</div>
 						<Link
 							href='/'
@@ -69,12 +73,13 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer'
 							onClick={() => handleProblemChange(true)}
 						>
-							<FaChevronRight />
+							<FaChevronRight />	{/* react icons */}
 						</div>
 					</div>
 				)}
 
 				<div className='flex items-center space-x-4 flex-1 justify-end'>
+					{/* when user is not signed in yet */}
 					{!user && (
 						<Link
 							href='/auth'
@@ -84,6 +89,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 						</Link>
 					)}
 					{user && problemPage && <Timer />}
+					{/* if the user is authenticated, there will be a avatar of the user, when hovered over, user email will appear */}
 					{user && (
 						<div className='cursor-pointer group relative'>
 							<Image src='/avatar.png' alt='Avatar' width={30} height={30} className='rounded-full' />
