@@ -4,6 +4,8 @@ import Split from "react-split";
 import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { javascript } from "@codemirror/lang-javascript";
+import { python } from "@codemirror/lang-python";
+import { java } from "@codemirror/lang-java";
 import EditorFooter from "./EditorFooter";
 import { Problem } from "@/utils/types/problem";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -18,15 +20,18 @@ type PlaygroundProps = {
 	problem: Problem;
 	setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 	setSolved: React.Dispatch<React.SetStateAction<boolean>>;
+	selectedLanguage: string;
+	handleLanguageChange: (language: string) => void;
 };
 
 export interface ISettings {
 	fontSize: string;
 	settingsModalIsOpen: boolean;
 	dropdownIsOpen: boolean;
+	language: string;
 }
 
-const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved }) => {
+const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved,  selectedLanguage, handleLanguageChange }) => {
 	const [activeTestCaseId, setActiveTestCaseId] = useState<number>(0);
 	let [userCode, setUserCode] = useState<string>(problem.starterCode);
 
@@ -36,6 +41,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		fontSize: fontSize,
 		settingsModalIsOpen: false,
 		dropdownIsOpen: false,
+		language: "javascript",
 	});
 
 	const [user] = useAuthState(auth);
@@ -113,7 +119,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 
 	return (
 		<div className='flex flex-col bg-dark-layer-1 relative overflow-x-hidden'>
-			<PreferenceNav settings={settings} setSettings={setSettings} />
+			<PreferenceNav settings={settings} setSettings={setSettings} handleLanguageChange={(language) => setSettings((prev) => ({ ...prev, language }))}/>
 
 			<Split className='h-[calc(100vh-94px)]' direction='vertical' sizes={[60, 40]} minSize={60}>
 				<div className='w-full overflow-auto'>
@@ -121,7 +127,17 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 						value={userCode}
 						theme={vscodeDark}
 						onChange={onChange}
-						extensions={[javascript()]}
+						extensions={(() => {
+							if (settings.language === "javascript") {
+							  return [javascript()];
+							} else if (settings.language === "python") {
+							  return [python()];
+							} else if (settings.language === "java") {
+							  return [java()];
+							} else {
+							  return []; // Return an empty array if no language is selected
+							}
+						  })()}
 						style={{ fontSize: settings.fontSize }}
 					/>
 				</div>
@@ -166,7 +182,11 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					</div>
 				</div>
 			</Split>
-			<EditorFooter handleSubmit={handleSubmit} />
+			<EditorFooter 
+			settings={settings} 
+			setSettings={setSettings}
+			handleSubmit={handleSubmit}
+			handleLanguageChange={(language) => setSettings((prev) => ({ ...prev, language }))}/>
 		</div>
 	);
 };

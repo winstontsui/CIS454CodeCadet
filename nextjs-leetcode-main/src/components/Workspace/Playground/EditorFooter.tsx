@@ -1,11 +1,15 @@
 import React from "react";
+import { ISettings } from "./Playground";
 import { BsChevronUp } from "react-icons/bs";
 
 type EditorFooterProps = {
+	settings: ISettings;
+	setSettings: React.Dispatch<React.SetStateAction<ISettings>>;
 	handleSubmit: () => void;
+	handleLanguageChange: (language: string) => void;
 };
 
-const EditorFooter: React.FC<EditorFooterProps> = ({ handleSubmit }) => {
+const EditorFooter: React.FC<EditorFooterProps> = ({ setSettings, settings, handleSubmit, handleLanguageChange }) => {
 	return (
 		<div className='flex bg-dark-layer-1 absolute bottom-0 z-10 w-full'>
 			<div className='mx-5 my-[10px] flex justify-between w-full'>
@@ -16,7 +20,21 @@ const EditorFooter: React.FC<EditorFooterProps> = ({ handleSubmit }) => {
 							<BsChevronUp className='fill-gray-6 mx-1 fill-dark-gray-6' />
 						</div>
 					</button>
+					<div className='mr-2 flex flex-1 flex-nowrap items-center space-x-4'>
+						{["javascript", "python", "java"].map((lang) => (
+							<button
+								key={lang}
+								className={`px-3 py-1.5 font-medium items-center transition-all inline-flex bg-dark-fill-3 text-sm hover:bg-dark-fill-2 text-dark-label-2 rounded-lg pl-3 pr-2 ${
+									settings.language === lang ? "bg-dark-fill-2" : ""
+								}`}
+								onClick={() => handleLanguageChange(lang)}
+							>
+								{lang.charAt(0).toUpperCase() + lang.slice(1)}
+							</button>
+						))}
+					</div>
 				</div>
+				
 				<div className='ml-auto flex items-center space-x-4'>
 					<button
 						className='px-3 py-1.5 text-sm font-medium items-center whitespace-nowrap transition-all focus:outline-none inline-flex bg-dark-fill-3  hover:bg-dark-fill-2 text-dark-label-2 rounded-lg'

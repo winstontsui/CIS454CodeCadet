@@ -14,12 +14,23 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
 	const { width, height } = useWindowSize();
 	const [success, setSuccess] = useState(false);
 	const [solved, setSolved] = useState(false);
+	const [language, setSelectedLanguage] = useState("javascript");
+
+	const handleLanguageChange = (language: string) => {
+		setSelectedLanguage(language);
+	};
 
 	return (
 		<Split className='split' minSize={0}>
 			<ProblemDescription problem={problem} _solved={solved} />
 			<div className='bg-dark-fill-2'>
-				<Playground problem={problem} setSuccess={setSuccess} setSolved={setSolved} />
+				<Playground 
+					problem={problem} 
+					setSuccess={setSuccess} 
+					setSolved={setSolved} 
+					selectedLanguage={language}
+					handleLanguageChange={handleLanguageChange} 
+					/>
 				{success && <Confetti gravity={0.3} tweenDuration={4000} width={width - 1} height={height - 1} />}
 			</div>
 		</Split>
