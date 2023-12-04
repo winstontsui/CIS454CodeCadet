@@ -13,6 +13,8 @@ NEXT_PUBLIC_FIREBASE_APP_ID = 1:707543406627:web:add9e4476dc764868b3996
 
 Step 2: Install Packages
 Run this Command: npm i --save @fortawesome/fontawesome
+npm install @fortawesome/free-solid-svg-icons
+
 
 
 Step 3: Run the development server:
