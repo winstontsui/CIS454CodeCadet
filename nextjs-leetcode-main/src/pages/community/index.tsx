@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
@@ -8,85 +8,128 @@ import {
   faPatreon,
 } from "@fortawesome/free-brands-svg-icons";
 import Topbar from "@/components/Topbar/Topbar";
+import Modal from '@/components/Modal/Modal';
+
+
 
 const CommunityPage: React.FC = () => {
   const events = [
     {
+      date: "DEC 1, 2023 - VIRTUAL",
+      title: "Tech Trends: AI & Machine Learning",
+      description: "Explore the cutting-edge trends in AI and Machine Learning! Join us for an insightful session on the future of these transformative technologies."
+    },
+    {
+      date: "DEC 2, 2023 - VIRTUAL",
+      title: "Cybersecurity Symposium",
+      description: "Fortify your digital defenses! Engage with cybersecurity experts and dive into discussions about the latest threats and defense strategies."
+    },
+    {
+      date: "DEC 3, 2023 - VIRTUAL",
+      title: "Coding Bootcamp Kickoff",
+      description: "Begin your coding journey with a bang! Join our intensive bootcamp and take the first steps towards becoming a proficient coder."
+    },
+    {
+      date: "DEC 4, 2023 - VIRTUAL",
+      title: "Data Analytics Deep Dive",
+      description: "Delve into the world of data! Learn essential techniques and tools for effective data analysis and decision-making."
+    },
+    {
+      date: "DEC 5, 2023 - VIRTUAL",
+      title: "Virtual Reality Workshop",
+      description: "Step into the realms of Virtual Reality! Discover the principles and applications of VR in this immersive workshop."
+    },
+    {
+      date: "DEC 6, 2023 - VIRTUAL",
+      title: "Ethical Hacking Seminar",
+      description: "Uncover the ethical side of hacking! Learn about responsible hacking practices and ethical considerations in cybersecurity."
+    },
+    {
+      date: "DEC 7, 2023 - VIRTUAL",
+      title: "Cloud Computing Symposium",
+      description: "Explore the sky of cloud technology! Dive deep into the concepts and innovations driving the world of cloud computing."
+    },
+    {
+      date: "DEC 8, 2023 - VIRTUAL",
+      title: "AI-Powered Marketing",
+      description: "Revolutionize marketing with AI! Learn how artificial intelligence is reshaping the marketing landscape."
+    },
+    {
+      date: "DEC 9, 2023 - VIRTUAL",
+      title: "IoT Innovations Conference",
+      description: "Witness the future of connected devices! Join the IoT conference to explore the latest innovations and trends."
+    },
+    {
+      date: "DEC 10, 2023 - VIRTUAL",
+      title: "Blockchain Basics",
+      description: "Demystify blockchain technology! Dive into the fundamentals of blockchain and its transformative potential."
+    },
+    {
       date: "DEC 10, 2023 - VIRTUAL",
       title: "Tuesday Full-Stack Study Session",
-      description: "Are you ready to embark on an exciting journey into Full-Stack development? Join us weekly for an immersive and collaborative learning experience as we go through the Full-Stack Chapter—TOGETHER!"
+      description: "Step into the world of Full-Stack development! Immerse yourself in a journey that unlocks the realms of both front-end and back-end marvels. Join us weekly for a collaborative learning experience as we unveil the secrets of crafting dynamic web applications."
     },
     {
       date: "DEC 12, 2023 - VIRTUAL",
       title: "Live Course | ChatGPT & Generative AI",
-      description: "Let's gather round' and put our noggins to good use as we tackle one or more LeetCode problems! Hosted by Baruch AIS SWD associate Wylie!"
+      description: "Unleash your coding prowess in solving mind-bending LeetCode problems! Engage with Baruch AIS SWD associate Wylie as we explore the captivating world of ChatGPT and Generative AI."
     },
     {
       date: "DEC 15, 2023 - VIRTUAL",
       title: "LeetCode Session #5",
-      description: "Are you ready to embark on an exciting journey into full-stack development? Join us weekly for an immersive and collaborative learning experience as we go through the Full-Stack Chapter—TOGETHER!"
+      description: "Dive deep into the labyrinth of full-stack development! Join us weekly for an interactive learning spree as we decode the intricacies of the Full-Stack Chapter together."
     },
     {
       date: "DEC 18, 2023 - VIRTUAL",
       title: "Music Monday: Back-End Study Session",
-      description: "Let's gather round' and put our noggins to good use as we tackle one or more LeetCode problems! Hosted by Baruch AIS SWD associate Wylie!"
-    },
-    {
-      date: "DEC 18, 2023 - VIRTUAL",
-      title: "Tuesday Full-Stack Study Session",
-      description: "Are you ready to embark on an exciting journey into Full-Stack development? Join us weekly for an immersive and collaborative learning experience as we go through the Full-Stack Chapter—TOGETHER!"
-    },
-    {
-      date: "DEC 18, 2023 - VIRTUAL",
-      title: "Live Course | ChatGPT & Generative AI",
-      description: "Let's gather round' and put our noggins to good use as we tackle one or more LeetCode problems! Hosted by Baruch AIS SWD associate Wylie!"
-    },
-    {
-      date: "DEC 19, 2023 - VIRTUAL",
-      title: "LeetCode Session #5",
-      description: "Are you ready to embark on an exciting journey into full-stack development? Join us weekly for an immersive and collaborative learning experience as we go through the Full-Stack Chapter—TOGETHER!"
-    },
-    {
-      date: "DEC 19, 2023 - VIRTUAL",
-      title: "Music Monday: Back-End Study Session",
-      description: "Let's gather round' and put our noggins to good use as we tackle one or more LeetCode problems! Hosted by Baruch AIS SWD associate Wylie!"
+      description: "Tune in for a symphony of coding challenges! Engage your intellect in tackling intriguing LeetCode problems alongside Baruch AIS SWD associate Wylie."
     },
     {
       date: "DEC 20, 2023 - VIRTUAL",
       title: "Hackathon Prep Workshop",
-      description: "Join us for an intensive workshop focusing on Hackathon strategies, brainstorming, and project management tips to ace the upcoming Hackathon!"
+      description: "Gear up for a high-octane workshop focusing on Hackathon strategies, brainstorming sessions, and pro-tips on acing the upcoming Hackathon!"
     },
     {
       date: "DEC 22, 2023 - VIRTUAL",
       title: "Front-End Friday: UI/UX Design Session",
-      description: "Get ready to dive deep into the world of UI/UX design principles, best practices, and hands-on exercises to enhance your Front-End skills!"
+      description: "Craft mesmerizing user experiences! Delve into the depths of UI/UX design principles and hands-on exercises to elevate your Front-End prowess."
     },
-
     {
       date: "DEC 25, 2023 - VIRTUAL",
       title: "Holiday Special: Coding Challenges and Prizes",
-      description: "Celebrate the holiday season with exciting coding challenges and win amazing prizes! Join us for this festive coding event."
+      description: "Celebrate the festive season with thrilling coding challenges and stand a chance to win fabulous prizes! Join us for this coding extravaganza."
     },
     {
       date: "DEC 28, 2023 - VIRTUAL",
       title: "Webinar: Exploring New Frontiers in JavaScript",
-      description: "Discover the latest advancements and future trends in JavaScript. A must-attend webinar for all JavaScript enthusiasts!"
+      description: "Embark on a journey through the latest advancements and future trends in JavaScript. A must-attend webinar for all JavaScript enthusiasts!"
     },
     {
       date: "DEC 30, 2023 - VIRTUAL",
       title: "Tech Talk: AI in Healthcare",
-      description: "Explore the impact of Artificial Intelligence in revolutionizing healthcare. Join experts for an insightful discussion."
-    },
+      description: "Witness the impact of Artificial Intelligence revolutionizing healthcare. Join experts for an enlightening discussion."
+    }
     // Add more events in a similar format...
   ];
+  const [showModals, setShowModals] = useState<boolean[]>(Array(events.length).fill(false));
+
+  const toggleModal = (index: number) => {
+    const updatedModals = [...showModals];
+    updatedModals[index] = !updatedModals[index];
+    setShowModals(updatedModals);
+  };
   
   const eventCards = events.map((event, index) => (
-    <div key={index} className="p-4 bg-black rounded-lg shadow-md flex items-center">
+    <div key={index} className="p-4 bg-black rounded-lg shadow-md flex items-front">
       <div>
         <div className="text-xs font-semibold mb-4">{event.date}</div>
         <h2 className="text-xl font-semibold mb-2">{event.title}</h2>
         <p className="text-gray-700">{event.description}</p>
-        <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">More Details</button>
+        <button onClick={() => toggleModal(index)} className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
+          More Details
+        </button>
+        <Modal show={showModals[index]} onClose={() => toggleModal(index)} eventText={event.description} />
+
       </div>
     </div>
   ));
