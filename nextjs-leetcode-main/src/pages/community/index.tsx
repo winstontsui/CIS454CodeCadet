@@ -139,15 +139,16 @@ const CommunityPage: React.FC = () => {
       <Topbar />
       <div className="bg-gray-900 min-h-screen text-white">
         <div
-          className="flex justify-center items-center h-64 bg-cover bg-center"
+          className="flex justify-center items-center h-44 bg-cover bg-center"
           style={{ backgroundImage: 'url("/community-background.jpg")' }}
         >
           {/* Replace "/community-background.jpg" with the actual path to your background image */}
           <h1 className="text-4xl font-bold text-white">
-            Welcome to Our Community
+            Welcome to Our Community!
           </h1>
+          
         </div>
-        <div className="container mx-auto mt-8">
+        <div className="container mx-auto mt">
           {/* Social Media Icons */}
           <div className="flex justify-center space-x-4 mb-8">
             <a
@@ -206,7 +207,9 @@ const CommunityPage: React.FC = () => {
               />
             </a>
           </div>
-
+          <h4 className="mb-4 text-2xl font-semi-bold text-white">
+            Upcoming Events:
+          </h4>
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Add your community content here, e.g., cards, posts, etc. */}
             {eventCards}
