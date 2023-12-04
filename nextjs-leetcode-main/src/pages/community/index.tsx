@@ -120,7 +120,7 @@ const CommunityPage: React.FC = () => {
   };
   
   const eventCards = events.map((event, index) => (
-    <div key={index} className="p-4 bg-black rounded-lg shadow-md flex items-front">
+    <div key={index} className="p-4 bg-black rounded-xl shadow-md flex items-front">
       <div>
         <div className="text-xs font-semibold mb-4">{event.date}</div>
         <h2 className="text-xl font-semibold mb-2">{event.title}</h2>
