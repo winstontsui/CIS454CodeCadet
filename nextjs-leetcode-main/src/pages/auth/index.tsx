@@ -1,6 +1,6 @@
 import { authModalState } from "@/atoms/authModalAtom";
 import AuthModal from "@/components/Modals/AuthModal";
-import Navbar from "@/components/Navbar/Navbar";
+import Topbar from "@/components/Topbar/Topbar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/firebase";
 import { useRecoilValue } from "recoil";
@@ -24,12 +24,15 @@ const AuthPage: React.FC<AuthPageProps> = () => {
 	if (pageLoading) return null;
 
 	return (
+		<div>
+			<Topbar />
 		<div className='bg-gradient-to-b from-gray-600 to-black h-screen relative'>
 			<div className='max-w-7xl mx-auto'>
-				<Navbar />
+				
 				<h1 className='text-4xl font-extrabold text-white text-center mt-8 mb-8'>Log out successful</h1>
 				{authModal.isOpen && <AuthModal />}	 {/*only display the auth modal components if its open*/}
 			</div>
+		</div>
 		</div>
 	);
 };

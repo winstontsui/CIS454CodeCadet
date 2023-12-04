@@ -8,7 +8,7 @@ import {
   faPatreon,
 } from "@fortawesome/free-brands-svg-icons";
 import Topbar from "@/components/Topbar/Topbar";
-import Modal from '@/components/Modal/Modal';
+import Modal from '@/components/Modal/ModalCommunityPage';
 
 
 

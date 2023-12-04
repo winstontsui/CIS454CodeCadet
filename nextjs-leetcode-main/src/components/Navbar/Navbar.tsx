@@ -15,6 +15,9 @@ const Navbar: React.FC<NavbarProps> = () => {
 			<Link href='/' className='flex items-center justify-center h-20'>
 				<Image src='/logo.png' alt='Code Cadet' height={75} width={75} style={{marginTop: '40px'}}/>
 			</Link>
+			<table className="text-sm text-left text-gray-500 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px] mx-auto">
+          
+        </table>
 			<div className='flex items-center'>
 				<button
 					className='bg-brand-orange text-white px-2 py-1 sm:px-4 rounded-md text-sm font-medium
