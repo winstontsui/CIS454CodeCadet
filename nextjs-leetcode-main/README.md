@@ -1,17 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
 
-```bash
+Step 1: Create a .env.local file in the root directory containing your firebase configurations:
+Put this in the file:
+NEXT_PUBLIC_FIREBASE_API_KEY = AIzaSyAiv1Gkj_zgPynU5ixIkvVV5MvvxIRNtrw
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN = codecadet-f5878.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID = codecadet-f5878
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET = codecadet-f5878.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID = 707543406627
+NEXT_PUBLIC_FIREBASE_APP_ID = 1:707543406627:web:add9e4476dc764868b3996
+
+
+Step 2: Install Packages
+Run this Command: npm i --save @fortawesome/fontawesome
+
+
+Step 3: Run the development server:
+
+Run this Command: 
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
+
+Additional Tips:
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
