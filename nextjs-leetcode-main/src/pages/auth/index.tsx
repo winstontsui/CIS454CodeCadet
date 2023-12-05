@@ -21,19 +21,30 @@ const AuthPage: React.FC<AuthPageProps> = () => {
 		if (!loading && !user) setPageLoading(false);
 	}, [user, router, loading]);
 
-	if (pageLoading) return null;
+	if (pageLoading) {
+		return (
+		  <main>
+			{/* Loading state, you can render a loader here if needed */}
+			Loading...
+			{authModal.isOpen && <AuthModal />}
+		  </main>
+		);
+	  }
 
 	return (
-		<div>
-			<Topbar />
-		<div className='bg-gradient-to-b from-gray-600 to-black h-screen relative'>
-			<div className='max-w-7xl mx-auto'>
-				
-				<h1 className='text-4xl font-extrabold text-white text-center mt-8 mb-8'>Log out successful</h1>
-				{authModal.isOpen && <AuthModal />}	 {/*only display the auth modal components if its open*/}
-			</div>
-		</div>
-		</div>
+		<>
+      {/* Separate rendering for Topbar outside the main element */}
+      <Topbar />
+
+      <main>
+        <div className="bg-gradient-to-b from-gray-600 to-black h-screen relative">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl font-extrabold text-white text-center mt-8 mb-8"></h1>
+            {authModal.isOpen && <AuthModal />}
+          </div>
+        </div>
+      </main>
+    </>
 	);
 };
 export default AuthPage;

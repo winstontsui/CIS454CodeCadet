@@ -80,7 +80,7 @@ export const problems: Problem[] = [
 		difficulty: "Easy",
 		category: "Array",
 		order: 9,
-		videoId: "",
+		videoId: "1pkOgXD63yU",
 	},
 	{
 		id: "subsets",
@@ -88,6 +88,22 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "Backtracking",
 		order: 10,
-		videoId: "",
+		videoId: "REOH22Xwdkk",
 	},
+	{
+		id: "reverse-integer",
+		title: "Reverse Integer",
+		difficulty: "Easy",
+		category: "Math",
+		order: 11,
+		videoId: "HAgLH58IgJQ",
+	  },
+	  {
+		id: "is-palindrome",
+		title: "Palindrome Number",
+		difficulty: "Easy",
+		category: "Math",
+		order: 12,
+		videoId: "yubRKwixN-U",
+	  },
 ];
