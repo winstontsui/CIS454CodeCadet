@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Topbar from "@/components/Topbar/Topbar";
 import SideBar from '@/components/CatalogPageSideBar/SideBar'; // Check the file path and casing
-import SocialMediaLinks from '@/components/SocialMediaLinks/SocialMediaLinks';
 
 
 const CatalogPage: React.FC = () => {
@@ -24,7 +23,6 @@ const CatalogPage: React.FC = () => {
             </div>
           )}
         </div>
-        <SocialMediaLinks />
       </div>
     </main>
   );
