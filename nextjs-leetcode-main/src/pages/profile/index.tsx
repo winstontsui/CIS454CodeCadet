@@ -4,6 +4,7 @@ import { auth, firestore} from '@/firebase/firebase'; // Import your Firebase co
 import { updateEmail, updatePassword } from "firebase/auth";
 import { doc, updateDoc } from 'firebase/firestore';
 import Achievements from '@/components/Achievement/Achievement';
+import EmailSupport from '@/components/EmailSupport/EmailSupport';
 
 import Image from "next/image";
 import { FaEnvelope, FaBell, FaSignOutAlt, FaPen, FaFacebook, FaTwitter, FaInstagram, FaInvision, FaGithub, FaWhatsapp, FaSnapchat } from "react-icons/fa";
@@ -198,6 +199,7 @@ const ProfilePage: React.FC = () => {
         </div>
         {/* End Social Media */}
         <Achievements></Achievements>
+        <EmailSupport></EmailSupport>
       </div>
       </div>
       

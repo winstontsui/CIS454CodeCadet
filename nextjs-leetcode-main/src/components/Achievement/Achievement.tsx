@@ -21,7 +21,7 @@ const Achievements = () => {
 
   return (
     <div>
-      <h2>My Achievements</h2>
+      <h2 className = "text-2xl mb-4">MY ACHIEVEMENTS</h2>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {achievementImages.map((image, index) => (
           <li
