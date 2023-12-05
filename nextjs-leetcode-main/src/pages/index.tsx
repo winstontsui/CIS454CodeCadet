@@ -14,12 +14,11 @@ export default function Home() {
 
   return (
     <>
+      <Topbar />
       <main className="bg-dark-layer-2 min-h-screen">
-        <Topbar />
-        <Navbar />
         <h1
           className="text-2xl text-center text-gray-700 dark:text-gray-400 font-medium
-					uppercase mt-10 mb-5"
+					uppercase mt-0 mb-10" 
         >
           &ldquo; QUALITY OVER QUANTITY &rdquo; 👇
         </h1>

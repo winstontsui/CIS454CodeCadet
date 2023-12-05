@@ -57,10 +57,10 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
         }`}
       >
         <div
-          style={{ position: "fixed", top: "5px", left: "5px", zIndex: "999" }}
+          style={{ position: "relative", top: "5px", left: "5px", zIndex: "999" }}
         >
           <Link href="/">
-            <Image src="/logo-full.png" alt="Logo" height={70} width={70} />
+            <Image src="/logo-full.png" alt="Logo" height={100} width={100} />
           </Link>
         </div>
         <table className="mx-12 text-sm text-left text-gray-500 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px] ">
@@ -68,17 +68,17 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
             <tr>
               <th
                 scope="col"
-                className="px-10 py-4 font-medium mb-2 mt-4 whitespace-nowrap text-right hover:text-blue-500 "
+                className="px-10 py-4 font-medium mb-2 mt-4 whitespace-nowrap text-center hover:text-blue-500 "
               >
-                <h1 className="">
+                <h1 className="community-title">
                   <Link href="/community">Community</Link>
                 </h1>
               </th>
               <th
                 scope="col"
-                className="px-10 py-4 font-medium mb-2 mt-4 whitespace-nowrap text-right hover:text-blue-500"
+                className="px-10 py-4 font-medium mb-2 mt-4 whitespace-nowrap text-center hover:text-blue-500"
               >
-                <h1 className="">
+                <h1 className="catalog-title">
                   <Link href="/catalog">Catalog</Link>
                 </h1>
               </th>
