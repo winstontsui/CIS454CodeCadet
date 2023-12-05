@@ -51,24 +51,19 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 
   return (
     <nav className="fixed flex h-[50px] w-full shrink-0 items-center px-5 bg-dark-layer-1 text-dark-gray-7">
-      <div
-        className={`flex w-full items-center justify-between ${
-          !problemPage ? "max-w-[1200px] mx-auto" : ""
-        }`}
-      >
-        <div
-          style={{ position: "relative", top: "5px", left: "5px", zIndex: "999" }}
-        >
+      <div className="flex w-full items-center justify-between max-w-[1200px] mx-auto">
+        <div className="relative top-2 left-2">
           <Link href="/">
-            <Image src="/logo-full.png" alt="Logo" height={100} width={100} />
+            <Image src="/logo-full.png" alt="Logo" height={40} width={120} />
           </Link>
         </div>
-        <table className="mx-12 text-sm text-left text-gray-500 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px] ">
+
+        <table className="mx-12 text-sm text-left text-gray-500 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px]">
           <thead className="text-xs text-white dark:text-gray-400 border-b w-full">
             <tr>
               <th
                 scope="col"
-                className="px-10 py-4 font-medium mb-2 mt-4 whitespace-nowrap text-center hover:text-blue-500 "
+                className="px-10 py-4 font-medium mb-2 mt-4 whitespace-nowrap text-center hover:text-blue-500"
               >
                 <h1 className="community-title">
                   <Link href="/community">Community</Link>
@@ -133,7 +128,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
           {user && problemPage && <Timer />}
           {/* if the user is authenticated, there will be a avatar of the user, when hovered over, user email will appear */}
           {user && (
-            <div style={{ position: "relative", top: "20px", right: "-150px", zIndex: "999" }}>
+            <div style={{ position: "relative", top: "20px", right: "-180px", zIndex: "999" }}>
               <Link href="/profile">
                 <Image
                   src="/avatar.png"
