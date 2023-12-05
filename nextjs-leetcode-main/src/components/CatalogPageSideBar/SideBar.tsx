@@ -27,10 +27,6 @@ const sidebarSections: Section[] = [
           title: "C Basics",
         },
         {
-          id: 6,
-          title: "C Booleans",
-        },
-        {
           id: 12,
           title: "C Control Structures",
         },
