@@ -128,7 +128,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
           {user && problemPage && <Timer />}
           {/* if the user is authenticated, there will be a avatar of the user, when hovered over, user email will appear */}
           {user && (
-            <div style={{ position: "relative", top: "20px", right: "-150px", zIndex: "999" }}>
+            <div style={{ position: "relative", top: "20px", right: "-100px", zIndex: "999" }}>
               <Link href="/profile">
                 <Image
                   src="/avatar.png"

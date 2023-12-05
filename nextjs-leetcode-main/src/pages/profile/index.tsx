@@ -5,6 +5,7 @@ import { updateEmail, updatePassword } from "firebase/auth";
 import { doc, updateDoc } from 'firebase/firestore';
 import Achievements from '@/components/Achievement/Achievement';
 import EmailSupport from '@/components/EmailSupport/EmailSupport';
+import Logout from "@/components/Buttons/Logout";
 
 import Image from "next/image";
 import { FaEnvelope, FaBell, FaSignOutAlt, FaPen, FaFacebook, FaTwitter, FaInstagram, FaInvision, FaGithub, FaWhatsapp, FaSnapchat } from "react-icons/fa";
@@ -95,7 +96,7 @@ const ProfilePage: React.FC = () => {
             </li>
             <li>
               <a href="#sign-out" className="flex items-center">
-                <FaSignOutAlt className="text-2xl" />
+                <Logout />
               </a>
             </li>
           </ul>
