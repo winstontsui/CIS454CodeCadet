@@ -101,7 +101,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 						<div className='w-full h-full flex items-center justify-center relative'>
 							<div className='w-full relative'>
 								<IoClose
-									fontSize={"35"}
+									fontSize={"36"}
 									className='cursor-pointer absolute -top-16 right-0'
 									onClick={closeModal}
 								/>

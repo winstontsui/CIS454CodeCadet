@@ -14,6 +14,9 @@ const CatalogPage: React.FC = () => {
         
         <SocialMediaLinks></SocialMediaLinks>
         
+
+        {/* Main Content */}
+        
       </div>
 
       

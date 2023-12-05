@@ -13,7 +13,7 @@ const SideBar: React.FC<SidebarProps> = () => {
             { id: 1, title: 'C Basics' },
             { id: 2, title: 'Functions in C' },
             { id: 3, title: 'Pointers in C' },
-            { id: 4, title: 'Arrays in C' },
+            { id: 4, title: 'Arrays in C', url: 'https://www.w3schools.com/c/c_for_loop.php' },
             { id: 5, title: 'Structures in C' },
             { id: 6, title: 'File Handling in C' },
             { id: 7, title: 'Dynamic Memory Allocation in C' },
