@@ -22,7 +22,6 @@ export default function Home() {
         >
           &ldquo; QUALITY OVER QUANTITY &rdquo; 👇
         </h1>
-
         <div className="relative overflow-x-auto mx-auto px-6 pb-10">
           {loadingProblems && (
             <div className="max-w-[1200px] mx-auto sm:w-7/12 w-full animate-pulse">

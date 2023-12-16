@@ -12,9 +12,9 @@ const CatalogPage: React.FC = () => {
 
   return (
     <main>
-      <Topbar />
       <div className="bg-purple-200 min-h-screen text-white flex">
         <SideBar handleLessonSelection={handleLessonSelection} />
+        <Topbar />
         <div className="flex-grow">
           {selectedLessonContent && (
             <div className="p-4">

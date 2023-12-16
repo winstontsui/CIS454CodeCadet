@@ -7,6 +7,8 @@ import { useRecoilValue } from "recoil";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Navbar from "@/components/Navbar/Navbar";
+
 type AuthPageProps = {};
 
 const AuthPage: React.FC<AuthPageProps> = () => {
@@ -34,8 +36,7 @@ const AuthPage: React.FC<AuthPageProps> = () => {
 	return (
 		<>
       {/* Separate rendering for Topbar outside the main element */}
-      <Topbar />
-
+      <Navbar />
       <main>
         <div className="bg-gradient-to-b from-gray-600 to-black h-screen relative">
           <div className="max-w-7xl mx-auto">
